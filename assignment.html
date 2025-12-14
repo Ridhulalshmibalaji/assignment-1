@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All-in-One Calculator</title>
+</head>
+<body>
+    <h1>All-in-One Calculator</h1>
+
+    <h2>Fahrenheit to Celsius</h2>
+    <input type="number" id="fahrenheit" placeholder="Enter Fahrenheit">
+    <button onclick="convertFtoC()">Convert</button>
+    <div id="celsiusResult"></div>
+
+    <h2>INR to USD</h2>
+    <input type="number" id="inr" placeholder="Enter INR">
+    <button onclick="convertInrToUsd()">Convert</button>
+    <div id="usdResult"></div>
+
+    <h2>BMI Calculator</h2>
+    <input type="number" id="weight" placeholder="Weight (kg)">
+    <input type="number" id="height" placeholder="Height (m)">
+    <button onclick="calculateBmi()">Calculate BMI</button>
+    <div id="bmiResult"></div>
+
+    <script>
+        function fahrenheitToCelsius(f) {
+            return (5/9) * (f - 32);
+        }
+
+        function inrToUsd(inr) {
+            let rate = 82;
+            return (inr / rate).toFixed(2);
+        }
+
+        function calculateBMI(weight, height) {
+            return (weight / (height * height)).toFixed(2);
+        }
+
+        function convertFtoC() {
+            let f = document.getElementById("fahrenheit").value;
+            document.getElementById("celsiusResult").innerText = fahrenheitToCelsius(f) + " °C";
+        }
+
+        function convertInrToUsd() {
+            let inr = document.getElementById("inr").value;
+            document.getElementById("usdResult").innerText = "$" + inrToUsd(inr);
+        }
+
+        function calculateBmi() {
+            let weight = document.getElementById("weight").value;
+            let height = document.getElementById("height").value;
+            document.getElementById("bmiResult").innerText = calculateBMI(weight, height);
+        }
+    </script>
+</body>
+</html>
